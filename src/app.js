@@ -156,6 +156,8 @@ app.put('/todos/:id', async (req, res) => {
   }
 })
 
+
+
 //eliminar un todo por su id
 app.delete('/todos/:id', async (req, res) => {
   try {
