@@ -4,6 +4,7 @@ const db = require(`./utils/database`);
 const initModels = require('./models/init.model');
 const Users = require('./models/users.model');
 const Todos = require('./models/todos.models');
+const userRoutes = require('./routes/users.routes')
 
 //crear una instancia de express
 const app = express();
@@ -27,6 +28,8 @@ db.sync({ force: false }) //devuelve una promesa
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'Welcome to server' });
 });
+
+app.use('/api/v1', userRoutes);
 
 //definir las rutas de nuestros endpoint(de ahora en adelante ep)
 //pra todas las consultas de usuarios
