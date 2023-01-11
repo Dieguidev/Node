@@ -7,7 +7,16 @@ class UserServices {
       const result = await Users.findAll();
       return result;
     } catch (error) {
-      throw new error();
+      throw new error;
+    }
+  }
+  
+  static async getById(id) {
+    try {
+      const result =await Users.findByPk(id);
+      return result;
+    } catch (error) {
+      throw new error;
     }
   }
 }
