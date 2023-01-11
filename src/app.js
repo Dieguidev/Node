@@ -29,8 +29,10 @@ app.get('/', (req, res) => {
   res.status(200).json({ message: 'Welcome to server' });
 });
 
+//estas son las rutas para controller y services
 app.use('/api/v1', userRoutes);
 app.use("/api/v1", todosRoutes);
+
 //definir las rutas de nuestros endpoint(de ahora en adelante ep)
 //pra todas las consultas de usuarios
 //localhost:8000/users --> todo para usuarios
