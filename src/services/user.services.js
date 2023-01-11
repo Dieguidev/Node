@@ -1,4 +1,6 @@
 
+const Categories = require('../models/categories.models');
+const TodosCategories = require('../models/todos-categories.models');
 const Todos = require('../models/todos.models');
 const Users = require('../models/users.model');
 
@@ -30,6 +32,29 @@ class UserServices {
         include: {
           model: Todos,
           as: 'task'
+        }
+      })
+      return result;
+    } catch (error) {
+      throw new error;
+    }
+  }
+
+  static async getUserWithTasksWithCategories(id) {
+    try {
+      const result=await Users.findOne({
+        where: {id},
+        include: {
+          model: Todos,
+          as: 'task',
+          include: {
+            model: TodosCategories,
+            as: 'category',
+            include: {
+              model: Categories,
+              as: 'category',
+            }
+          }
         }
       })
       return result;

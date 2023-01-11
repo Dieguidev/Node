@@ -14,7 +14,7 @@ router.get('/users/:id', getUsersById);
 router.get('/users/:id/todos', getUserWithTasks);
 
 //obtener usuario con sus tareas con sus categorias
-router.get ('users/:id/todos/categories', getUserWithTasksWithCategories);
+router.get('/users/:id/todos/categories', getUserWithTasksWithCategories);
 
 router.post('/users', createUser);
 

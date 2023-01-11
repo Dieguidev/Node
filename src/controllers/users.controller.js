@@ -20,18 +20,24 @@ const getUsersById = async (req, res) => {
   }
 };
 
-const getUserWithTasks = async (req,res)=>{
+const getUserWithTasks = async (req, res) => {
   try {
-    const {id}=req.params;
+    const { id } = req.params;
     const result = await UserServices.getUserWithTasks(id);
-    res.json(result)   //por defecto responde estatus 200
+    res.json(result);   //por defecto responde estatus 200
   } catch (error) {
     res.status(400).json(error.message);
   }
 };
 
-const getUserWithTasksWithCategories=async (req,res) =>{
-
+const getUserWithTasksWithCategories = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await UserServices.getUserWithTasksWithCategories(id);
+    res.json(result);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
 }
 
 const createUser = async (req, res) => {
