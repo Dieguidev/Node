@@ -19,6 +19,16 @@ const getTaskById = async (req, res) => {
   }
 };
 
+const getTodosWithCategories = async(req,res)=> {
+  try {
+    const {id}= req.params;
+    const result = await TodosServices.getTodosWithCategories(id);
+    res.json(result);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+}
+
 const createTask = async (req, res) => {
   try {
     const todo = req.body;
@@ -56,4 +66,5 @@ module.exports = {
   createTask,
   updateTask,
   deleteTask,
+  getTodosWithCategories
 };

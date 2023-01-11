@@ -5,13 +5,18 @@ const {
   createTask,
   updateTask,
   deleteTask,
+  getTodosWithCategories,
 } = require("../controllers/todos.controllers");
+const { route } = require("./users.routes");
 
 const router = Router();
 
 router.get("/todos", getAllTasks);
 
 router.get("/todos/:id", getTaskById);
+
+//obtener un todo con sus categorias
+router.get('/todos/:id/categories', getTodosWithCategories);
 
 router.post("/todos", createTask);
 

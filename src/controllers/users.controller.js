@@ -30,6 +30,10 @@ const getUserWithTasks = async (req,res)=>{
   }
 };
 
+const getUserWithTasksWithCategories=async (req,res) =>{
+
+}
+
 const createUser = async (req, res) => {
   try {
     const newUser = req.body;
@@ -61,6 +65,7 @@ module.exports = {
   createUser,
   updateUser,
   deleteUser,
-  getUserWithTasks
+  getUserWithTasks,
+  getUserWithTasksWithCategories
 }
 
