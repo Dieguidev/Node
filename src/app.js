@@ -5,7 +5,7 @@ const initModels = require('./models/init.model');
 const Users = require('./models/users.model');
 const Todos = require('./models/todos.models');
 const userRoutes = require('./routes/users.routes')
-
+const todosRoutes = require ('./routes/todos.routes')
 //crear una instancia de express
 const app = express();
 
@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/v1', userRoutes);
-
+app.use("/api/v1", todosRoutes);
 //definir las rutas de nuestros endpoint(de ahora en adelante ep)
 //pra todas las consultas de usuarios
 //localhost:8000/users --> todo para usuarios

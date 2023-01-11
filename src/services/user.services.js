@@ -19,6 +19,26 @@ class UserServices {
       throw new error;
     }
   }
+
+  static async createUser(user){
+    try {
+      const result = await Users.create(user);
+      return result;
+    } catch (error) {
+      throw new error;
+    }
+  }
+
+  static async updateUserById(field, id){
+    try {
+      const result = await Users.update(field, {
+        where: { id }
+      });
+      return result;
+    } catch (error) {
+      throw new error;
+    }
+  }
 }
 
 module.exports = UserServices;
