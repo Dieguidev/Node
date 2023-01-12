@@ -1,4 +1,5 @@
 
+const { where } = require('sequelize');
 const Categories = require('../models/categories.models');
 const TodosCategories = require('../models/todos-categories.models');
 const Todos = require('../models/todos.models');
@@ -44,6 +45,7 @@ class UserServices {
     try {
       const result=await Users.findOne({
         where: {id},
+        attributes:{exclude: ['password']},
         include: {
           model: Todos,
           as: 'task',
@@ -77,6 +79,15 @@ class UserServices {
       const result = await Users.update(field, {
         where: { id }
       });
+      return result;
+    } catch (error) {
+      throw new error;
+    }
+  }
+  
+  static async deleteUser(id) {
+    try {
+      const result = await Users.destroy({where:{id}});
       return result;
     } catch (error) {
       throw new error;
