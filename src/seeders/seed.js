@@ -20,16 +20,16 @@ const todos = [
 
 
 const categories = [
-  {name: 'personal'},  //1
-  {name: 'educacion'},  //2
-  {name: 'salud'},  //3
-  {name: 'trabajo'},  //4
-  {name: 'hogar'},      //5
-  {name: 'cocina'},    //6
-  {name: 'deporte'},   //7
-  {name: 'ocio'},    //8
-  {name: 'financiero'},   //9
-  {name: 'entretenimiento'},   //10
+  {name: 'personal', userId: 1},  //1
+  {name: 'educacion', userId: 2},  //2
+  {name: 'salud', userId: 3},  //3
+  {name: 'trabajo', userId: 2},  //4
+  {name: 'hogar', userId: 2},      //5
+  {name: 'cocina', userId: 2},    //6
+  {name: 'deporte', userId: 2},   //7
+  {name: 'ocio', userId: 2},    //8
+  {name: 'financiero', userId: 2},   //9
+  {name: 'entretenimiento', userId: 2},   //10
 ];
 
 

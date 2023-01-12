@@ -93,6 +93,22 @@ class UserServices {
       throw new error;
     }
   }
+
+  static async getUserWithCategories(id) {
+    try {
+      const result = await Users.findOne({
+        where: { id },
+        attributes: ['username', 'email'],
+        include: {
+        model: Categories,
+        as: 'categories',
+        }
+      })
+      return result;
+    } catch (error) {
+      throw new error;
+    }
+  }
 }
 
 module.exports = UserServices;

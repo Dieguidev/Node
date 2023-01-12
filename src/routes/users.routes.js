@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getAllUsers, getUsersById, createUser, updateUser, deleteUser, getUserWithTasks, getUserWithTasksWithCategories } = require('../controllers/users.controller')
+const { getAllUsers, getUsersById, createUser, updateUser, deleteUser, getUserWithTasks, getUserWithTasksWithCategories, getUserWithCategories } = require('../controllers/users.controller')
 
 const router = Router();
 
@@ -15,6 +15,9 @@ router.get('/users/:id/todos', getUserWithTasks);
 
 //obtener usuario con sus tareas con sus categorias
 router.get('/users/:id/todos/categories', getUserWithTasksWithCategories);
+
+//llamando las categorias por usuario
+router.get('/users/:id/categories', getUserWithCategories);
 
 router.post('/users', createUser);
 

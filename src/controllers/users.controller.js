@@ -40,6 +40,16 @@ const getUserWithTasksWithCategories = async (req, res) => {
   }
 }
 
+const getUserWithCategories = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await UserServices.getUserWithCategories(id);
+    res.json(result);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+};
+
 const createUser = async (req, res) => {
   try {
     const newUser = req.body;
@@ -64,7 +74,7 @@ const updateUser = async (req, res) => {
 const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
-    const result= await UserServices.deleteUser(id);
+    const result = await UserServices.deleteUser(id);
     res.json(result);
   } catch (error) {
     res.status(400).json(error.message);
@@ -78,6 +88,7 @@ module.exports = {
   updateUser,
   deleteUser,
   getUserWithTasks,
-  getUserWithTasksWithCategories
+  getUserWithTasksWithCategories,
+  getUserWithCategories,
 }
 
