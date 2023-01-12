@@ -28,10 +28,11 @@ class TodosServices {
         include: {
           model: TodosCategories,
           as: 'category',
-          include: {
-            model: Categories,
-            as: 'category',
-          }
+          attributes:['id']
+          // include: {
+          //   model: Categories,
+          //   as: 'category',
+          // }
         }
       })
       return result;
