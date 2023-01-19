@@ -19,18 +19,6 @@ const todos = [
 ];
 
 
-const categories = [
-  {name: 'personal', userId: 1},  //1
-  {name: 'educacion', userId: 2},  //2
-  {name: 'salud', userId: 3},  //3
-  {name: 'trabajo', userId: 2},  //4
-  {name: 'hogar', userId: 2},      //5
-  {name: 'cocina', userId: 2},    //6
-  {name: 'deporte', userId: 2},   //7
-  {name: 'ocio', userId: 2},    //8
-  {name: 'financiero', userId: 2},   //9
-  {name: 'entretenimiento', userId: 2},   //10
-];
 
 
 const todosCategories = [
@@ -47,6 +35,18 @@ const todosCategories = [
   { categoryId: 3, todoId: 4 },
 ];
 
+const categories = [
+  {name: 'personal', userId: 1},  //1
+  {name: 'educacion', userId: 3},  //2
+  {name: 'salud', userId: 3},  //3
+  {name: 'trabajo', userId: 2},  //4
+  {name: 'hogar', userId: 2},      //5
+  {name: 'cocina', userId: 1},    //6
+  {name: 'deporte', userId: 2},   //7
+  {name: 'ocio', userId: 3},    //8
+  {name: 'financiero', userId: 1},   //9
+  {name: 'entretenimiento', userId: 1},   //10
+];
 
 db.sync({ force: true })
   .then(() => {
@@ -57,9 +57,9 @@ db.sync({ force: true })
     }, 100);
     setTimeout(()=>{
       categories.forEach(category=>Categories.create(category));
-    }, 250);
+    }, 100);
     setTimeout(()=>{
       todosCategories.forEach(tc=>TodosCategories.create(tc));
-    }, 400);
+    }, 100);
   })
   .catch(error=> console.log(error));

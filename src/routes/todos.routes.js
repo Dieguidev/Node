@@ -7,21 +7,23 @@ const {
   deleteTask,
   getTodosWithCategories,
 } = require("../controllers/todos.controllers");
+const authMiddleware = require("../middlewares/auth.middleware");
 const { route } = require("./users.routes");
+
 
 const router = Router();
 
-router.get("/todos", getAllTasks);
+router.get("/todos", authMiddleware, getAllTasks);
 
-router.get("/todos/:id", getTaskById);
+router.get("/todos/:id", authMiddleware, getTaskById);
 
 //obtener un todo con sus categorias
-router.get('/todos/:id/categories', getTodosWithCategories);
+router.get('/todos/:id/categories', authMiddleware, getTodosWithCategories);
 
-router.post("/todos", createTask);
+router.post("/todos", authMiddleware, createTask);
 
-router.put("/todos/:id", updateTask);
+router.put("/todos/:id", authMiddleware, updateTask);
 
-router.delete("/todos/:id", deleteTask);
+router.delete("/todos/:id", authMiddleware, deleteTask);
 
 module.exports = router;

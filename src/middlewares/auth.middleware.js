@@ -1,0 +1,34 @@
+const jwt = require('jsonwebtoken');
+
+const authMiddleware = (req, res, next) => {
+  //para obtener el authorization puedo hacerlo asi
+  let { authorization: token } = req.headers;
+  token = token.replace('Bearer ', '');
+  //o tambien asi
+  //const token = req.headers.authorization;
+  console.log(token);
+  jwt.verify(
+    token, 'mikeyla',
+    { algorithms: 'HS512' },
+    (err, decoded) => {
+      if (err) {
+        res.status(400).json({
+          error: 'invalid token',
+          message: 'El token no es válido o ya expiro, envía un token correcto'
+        });
+      } else {
+        console.log(decoded);
+        next();
+      }
+    }
+  );
+
+}
+
+module.exports = authMiddleware;
+
+//vamos a validar el token
+
+//si el token es valido lo dejamos pasar a la ruta
+
+//si es invalido no lo dejamos entrar

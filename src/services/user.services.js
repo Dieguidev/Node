@@ -98,7 +98,8 @@ class UserServices {
     try {
       const result = await Users.findOne({
         where: { id },
-        attributes: ['username', 'email'],
+        
+        attributes:{exclude: ['password']},
         include: {
         model: Categories,
         as: 'categories',

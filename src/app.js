@@ -4,12 +4,15 @@ const db = require(`./utils/database`);
 const initModels = require('./models/init.model');
 const Users = require('./models/users.model');
 const Todos = require('./models/todos.models');
-const userRoutes = require('./routes/users.routes')
-const todosRoutes = require ('./routes/todos.routes')
+const userRoutes = require('./routes/users.routes');
+const todosRoutes = require('./routes/todos.routes');
+const authRoutes = require('./routes/auth.routes')
+const cors = require('cors');
 //crear una instancia de express
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 const PORT = 8000;
 
@@ -32,6 +35,7 @@ app.get('/', (req, res) => {
 //estas son las rutas para controller y services
 app.use('/api/v1', userRoutes);
 app.use("/api/v1", todosRoutes);
+app.use('/api/v1', authRoutes);
 
 //definir las rutas de nuestros endpoint(de ahora en adelante ep)
 //pra todas las consultas de usuarios
