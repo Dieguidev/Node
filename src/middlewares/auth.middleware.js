@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const authMiddleware = (req, res, next) => {
   //para obtener el authorization puedo hacerlo asi
@@ -8,7 +9,8 @@ const authMiddleware = (req, res, next) => {
   //const token = req.headers.authorization;
   console.log(token);
   jwt.verify(
-    token, 'mikeyla',
+    token, 
+    process.env.JWT_SECRET,  //aqui iba la palabra secreta pero va a ir los env
     { algorithms: 'HS512' },
     (err, decoded) => {
       if (err) {
